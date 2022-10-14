@@ -9,10 +9,23 @@ import de from './de'
 import en from './en'
 import it from './it'
 
+import de_route_1 from './de/route_1'
+import en_route_1 from './en/route_1'
+import it_route_1 from './it/route_1'
+
 const localeTranslations = {
-	de,
-	en,
-	it,
+	de: {
+		...de,
+		route_1: de_route_1
+	},
+	en: {
+		...en,
+		route_1: en_route_1
+	},
+	it: {
+		...it,
+		route_1: it_route_1
+	},
 }
 
 export const loadLocale = (locale: Locales): void => {
