@@ -1,7 +1,7 @@
 import type { BaseTranslation } from '../../i18n-types'
 
-const en: BaseTranslation = {
+const en_route_1: BaseTranslation = {
 	welcome: 'welcome to route_1'
 }
 
-export default en
+export default en_route_1

@@ -33,7 +33,7 @@ const getPreferredLocale = (event: RequestEvent) => {
 	// use params lang before accept lang
 	const accept_lang = detectLocale(acceptLanguageDetector)
 	const params_lang = detectLocale(paramsLanguageDetector)
-	const best_lang = params_lang != null ? params_lang : accept_lang
+	const best_lang = params_lang ?? accept_lang // uses the Nullish coalescing operator, if params_lang is nullish then use accept_lang
 	return best_lang 
 }
 
