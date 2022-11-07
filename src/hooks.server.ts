@@ -28,13 +28,13 @@ const getPreferredLocale = (event: RequestEvent) => {
 	console.log('headers is: ', headers)
 	const acceptLanguageDetector = initAcceptLanguageHeaderDetector({ headers }) // checks whether we have a header that has a language that we have set up for
 	const paramsLanguageDetector = initRequestParametersDetector(event);
-	console.log('detectLocale(acceptLanguageDetector)  is:', detectLocale(acceptLanguageDetector) )
-	console.log('paramsLanguageDetector  is:', detectLocale(paramsLanguageDetector) )
+	console.log('detectLocale  is:', detectLocale(acceptLanguageDetector, paramsLanguageDetector) )
+	// console.log('paramsLanguageDetector  is:', detectLocale(paramsLanguageDetector) )
 	// use params lang before accept lang
-	const accept_lang = detectLocale(acceptLanguageDetector)
-	const params_lang = detectLocale(paramsLanguageDetector)
-	const best_lang = params_lang ?? accept_lang // uses the Nullish coalescing operator, if params_lang is nullish then use accept_lang
-	return best_lang 
+	const accept_lang = detectLocale(acceptLanguageDetector, paramsLanguageDetector)
+	// const params_lang = detectLocale(paramsLanguageDetector)
+	// const best_lang = params_lang ?? accept_lang // uses the Nullish coalescing operator, if params_lang is nullish then use accept_lang
+	return accept_lang 
 }
 
 const transformHeaders = ({ request }: RequestEvent) => {

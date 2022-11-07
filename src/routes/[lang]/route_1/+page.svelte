@@ -8,7 +8,7 @@
     const displaySettingsPage = async (locale) => {
         console.log('within displaySettingsPage')
         await loadNamespaceAsync(locale, 'route_1')
-        console.log('setting locale')
+        console.log('setting locale to ', setLocale(locale))
         setLocale(locale)
 
         // goto settings page
