@@ -6,12 +6,18 @@
 	import { locales } from '$i18n/i18n-util'
 	import { loadLocaleAsync } from '$i18n/i18n-util.async'
 	import { replaceLocaleInUrl } from '../utils'
+	import { loadNamespaceAsync } from '$i18n/i18n-util.async'
 
 	const switchLocale = async (newLocale: Locales, updateHistoryState = true) => {
 		if (!newLocale || $locale === newLocale) return
 
 		// load new dictionary from server
 		await loadLocaleAsync(newLocale)
+
+		// load namespace for current subroute
+		console.log('page.data is: ', $page)
+		console.log('split $page.routeID is: ', $page.routeId.split('/')[1])
+		await loadNamespaceAsync(newLocale, $page.routeId.split('/')[1])
 
 		// select locale
 		setLocale(newLocale)

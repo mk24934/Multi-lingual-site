@@ -33,3 +33,7 @@
 <div class="spectators">
 	{$LL.spectators(spectators)}
 </div>
+
+<p>
+	<a href="en/route_1">Link to route 1</a>
+</p>

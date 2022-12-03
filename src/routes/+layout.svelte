@@ -6,8 +6,8 @@
 
 	export let data: LayoutData
 
-	$: lang = $page.params.lang
-	setLocale(data.locale)
+	// $: lang = $page.params.lang
+	// setLocale(data.locale)
 </script>
 
 <Header />
