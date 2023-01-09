@@ -36,4 +36,6 @@
 
 <p>
 	<a href="en/route_1">Link to route 1</a>
+	<a href="en/lesson_1">Link to lesson 1</a>
+	<a href="en/lesson_2">Link to lesson 2</a>
 </p>

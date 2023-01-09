@@ -8,6 +8,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// const [, lang] = event.url.pathname.split('/')
 	const { lang } = event.params // destructures the params object saving the lang object, taking this from [lang] in routes, using JavaScript
 
+	console.log('lang is: ', lang)
+
 	if (!lang) {
 		const locale = getPreferredLocale(event) // going to be something from the request header: en, it, or de, not using the lang parameter from event.params
 
