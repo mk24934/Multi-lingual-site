@@ -1,25 +1,6 @@
 <script>
-    // import StoryblokClient from "storyblok-js-client";
-
-    // const Storyblok = new StoryblokClient({
-    //     accessToken: "dNAzbfRvs9AaYTBOYcehQAtt",
-    // });
-
-    // const content = Storyblok.get("cdn/stories", {
-    //     version: "draft",
-    //     filter_query: {
-    //     component: {
-    //         in: "articles",
-    //     },
-    //     },
-    // })
-    // .then((res) => {
-    //     console.log(res.data.stories);
-    // });
-
-    // console.log("Storyblok content is", content)
-
     import { storyblokInit, apiPlugin } from "@storyblok/js";
+    import Story from "$lib/components/Story.svelte";
  
     const { storyblokApi } = storyblokInit({
         accessToken: "dNAzbfRvs9AaYTBOYcehQAtt",
@@ -32,14 +13,18 @@
         })
         const story = data.story
 
-        console.log('story is: ', story.content.text)
+        console.log('story is: ', story)
 
-        return story.content.text.content[0].content[0].text
+        return story
     }
 
-    const content = load_storyblok()
+    const promise = load_storyblok()
+    // a better way to do this is a page.server.ts to get the data then pass it into the component
 </script>
 
 Page 2
 
-{content}
+<!-- the value that promise wraps, puts it into story. then pass the story data into the Story component -->
+{#await promise then story }
+    <Story {story}/>
+{/await}
