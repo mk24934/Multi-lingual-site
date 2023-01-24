@@ -22,8 +22,6 @@
     // a better way to do this is a page.server.ts to get the data then pass it into the component
 </script>
 
-Page 2
-
 <!-- the value that promise wraps, puts it into story. then pass the story data into the Story component -->
 {#await promise then story }
     <Story {story}/>
