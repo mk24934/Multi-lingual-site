@@ -7,6 +7,9 @@
         {#if text.type === "text"}
             {#if JSON.stringify(text.marks)}
                 {#each text.marks as mark}
+                    {#if JSON.stringify(mark).includes("code")}
+                        <code>{text.text}</code>
+                    {/if}
                     {#if JSON.stringify(mark).includes("bold")}
                         <b>{text.text}</b>
                     {/if}
@@ -17,6 +20,10 @@
             {:else}
                 {text.text}
             {/if}
+        {/if}
+        {#if text.type === "image"}
+            <img src={text.attrs.src} alt={text.attrs.src} >
+            <br>
         {/if}
         {#if text.type === "hard_break"}
             <br>

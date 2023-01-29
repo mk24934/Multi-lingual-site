@@ -1,6 +1,9 @@
 <script>
     import { storyblokInit, apiPlugin } from "@storyblok/js";
     import Story from "$lib/components/Story.svelte";
+
+    /** @type {import('./$types').PageData} */
+    export let data;
  
     const { storyblokApi } = storyblokInit({
         accessToken: "dNAzbfRvs9AaYTBOYcehQAtt",
@@ -20,9 +23,10 @@
 
     const promise = load_storyblok()
     // a better way to do this is a page.server.ts to get the data then pass it into the component
+
 </script>
 
 <!-- the value that promise wraps, puts it into story. then pass the story data into the Story component -->
 {#await promise then story }
-    <Story {story}/>
+    <Story {story} code={data.code}/>
 {/await}
