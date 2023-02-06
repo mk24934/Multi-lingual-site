@@ -25,8 +25,6 @@
             <img src={text.attrs.src} alt={text.attrs.src} >
             <br>
         {/if}
-        {#if text.type === "hard_break"}
-            <br>
-        {/if}
+
     {/each}
 {/if}

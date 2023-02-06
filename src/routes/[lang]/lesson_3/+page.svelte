@@ -15,7 +15,7 @@
         // "cdn/stories/articles/benvenuti-su-marte" // with language: "it"
         const { data } = await storyblokApi.get("cdn/stories/articles/welcome-to-mars", {
             version: "draft",
-            language: "en"
+            language: "it"
         })
         const story = data.story
 

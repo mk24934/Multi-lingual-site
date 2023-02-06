@@ -18,6 +18,7 @@
 
     {#if content.type === "paragraph"}
         <Paragraph content={content.content} />
+        <br><br>
     {/if}
 
     {#if content.type === "blok"}
