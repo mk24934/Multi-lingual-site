@@ -15,9 +15,10 @@
 		await loadLocaleAsync(newLocale)
 
 		// load namespace for current subroute
+		console.log('newLocale is: ', newLocale)
 		console.log('page.data is: ', $page)
 		console.log('split $page.routeID is: ', $page.routeId.split('/')[1])
-		await loadNamespaceAsync(newLocale, $page.routeId.split('/')[1])
+		// await loadNamespaceAsync(newLocale, $page.routeId.split('/')[1])
 
 		// select locale
 		setLocale(newLocale)
