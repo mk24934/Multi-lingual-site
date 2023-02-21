@@ -4,6 +4,8 @@
 
 This example demonstrates a [`typesafe-i18n`](https://github.com/ivanhofer/typesafe-i18n)-integration with [SvelteKit](https://kit.svelte.dev/).
 
+### Demo source code: https://github.com/ivanhofer/typesafe-i18n-demo-sveltekit
+
 ### LIVE-DEMO: https://typesafe-i18n-demo-sveltekit.vercel.app
 
 It is a basic example and shows:
