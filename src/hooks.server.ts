@@ -15,7 +15,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	console.log('lang is: ', lang)
 
-	if (!lang) {
+	if (event.url.pathname.startsWith('/api')) {
+		console.log('do that thing')
+	} else if (!lang) {
 		const locale = getPreferredLocale(event) // going to be something from the request header: en, it, or de, not using the lang parameter from event.params
 
 		return new Response(null, {
@@ -29,8 +31,12 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const LL = L[locale]
 
 	// bind locale and translation functions to current request
+	// passed by reference
+	// called dependency injection
 	event.locals.locale = locale
 	event.locals.LL = LL
+
+	console.log('event after bind is: ', JSON.stringify(event))
 
 	console.info(LL.log({ fileName: 'hooks.server.ts' })) 
 
