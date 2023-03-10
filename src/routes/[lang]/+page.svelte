@@ -39,4 +39,6 @@
 	<a href="en/lesson_1">Link to lesson 1</a>
 	<a href="en/lesson_2">Link to lesson 2</a>
 	<a href="en/lesson_3">Link to lesson 3 - italian</a>
+	<a href="api/greeting">Link to greeting api</a>
+	<a href="en/hello">Link to hello api</a>
 </p>
