@@ -3,8 +3,8 @@
 import vercel from '@sveltejs/adapter-vercel'
 import { mdsvex } from 'mdsvex'
 import mdsvexConfig from './mdsvex.config.js'
-// import sveltePreprocess from "svelte-preprocess";
-import { vitePreprocess } from '@sveltejs/kit/vite'
+import sveltePreprocess from "svelte-preprocess";
+// import { vitePreprocess } from '@sveltejs/kit/vite'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -18,7 +18,7 @@ const config = {
 	},
 
 	preprocess: [
-		vitePreprocess(),
+		sveltePreprocess(),
 		mdsvex({
 			extensions: ['.md'],
 			layout: {
