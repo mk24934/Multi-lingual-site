@@ -19,3 +19,18 @@ export const load: PageServerLoad = async ({ fetch }) => {
     // return { data: data as unknown as string }
     return { message }
 }
+
+/** @type {import('./$types').Actions} */
+export const actions = {
+    default: async ({ request }) => {
+        console.log("button clicked")
+        const data = await request.formData()
+        const input = data.get('input')
+        const message = await api('day', {day: input}, "POST")
+            .then(response => response.text())
+            console.log('message is: ', message
+        )
+        // const message = "abc"
+        return { message }
+    }
+};
