@@ -1,5 +1,5 @@
 import { api } from "$lib/server/api"
-import type { PageServerLoad } from "./$types"
+import type { PageServerLoad, Actions } from "./$types"
 
 // fetch within here is a magic version of fetch, a wrapper around, so it is same plus additional things
 export const load: PageServerLoad = async ({ fetch }) => {
@@ -20,12 +20,16 @@ export const load: PageServerLoad = async ({ fetch }) => {
     return { message }
 }
 
-/** @type {import('./$types').Actions} */
-export const actions = {
+export const actions: Actions = {
     default: async ({ request }) => {
         console.log("button clicked")
-        const data = await request.formData()
-        const input = data.get('input')
+        // a ? is added infront of toString because the return type of `get` could be null, 
+        // so the ? is "nullesh coalescing" to prevent errors incase the `get` returns a null
+        const { input } = await request.formData()
+            .then((data) => ({ input: data.get('input')?.toString }))
+            // .then(({input}) => {if (input === 'Monday') return {input}}) // a starting example of doing validation
+
+        // const input = data.get('input')
         const message = await api('day', {day: input}, "POST")
             .then(response => response.text())
             console.log('message is: ', message

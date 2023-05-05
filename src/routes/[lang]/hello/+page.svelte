@@ -19,7 +19,7 @@ hi
         Input box
         <input name="input" type="input">
     </label>
-    <button>Log in</button>
+    <button>Send text</button>
 </form>
 
 {#if form}
