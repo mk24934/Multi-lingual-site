@@ -28,7 +28,7 @@ export const actions: Actions = {
         const { input } = await request.formData()
             .then((data) => ({ input: data.get('input')?.toString }))
             // .then(({input}) => {if (input === 'Monday') return {input}}) // a starting example of doing validation
-
+        // const data = await request.formData()
         // const input = data.get('input')
         const message = await api('day', {day: input}, "POST")
             .then(response => response.text())
