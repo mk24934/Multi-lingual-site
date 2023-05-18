@@ -26,7 +26,7 @@ export const actions: Actions = {
         // a ? is added infront of toString because the return type of `get` could be null, 
         // so the ? is "nullesh coalescing" to prevent errors incase the `get` returns a null
         const { input } = await request.formData()
-            .then((data) => ({ input: data.get('input')?.toString }))
+            .then((data) => ({ input: data.get('input')?.toString() }))
             // .then(({input}) => {if (input === 'Monday') return {input}}) // a starting example of doing validation
         // const data = await request.formData()
         // const input = data.get('input')
